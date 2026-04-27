@@ -139,8 +139,8 @@
                &trans      &none   &kp HOME     &kp UP    &kp END      &kp PG_UP                                              &kp KP_N7  &kp KP_N8   &kp KP_N9  &kp KP_MINUS     &kp KP_SLASH        &kp F12
                &trans  &kp LC(Y)   &kp LEFT   &kp DOWN  &kp RIGHT      &kp PG_DN                                              &kp KP_N4  &kp KP_N5   &kp KP_N6   &kp KP_PLUS  &kp KP_MULTIPLY     &kp KP_NUM
  &magic LAYER_Magic 0  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LS(LC(V))                                              &kp KP_N1  &kp KP_N2   &kp KP_N3  &kp KP_ENTER        &kp EQUAL &to LAYER_Base
-                                      &none     &trans     &trans                                                                        &kp KP_N0  &kp KP_DOT      &kp BSPC
-                                                             &mo LAYER_SymbolNav  &trans  &trans              &trans  &trans  &kp KP_N0
+                                      &trans     &kp LC(LA(DEL))     &trans                                                                        &kp LEFT  &kp DOWN      &kp RIGHT
+                                                             &trans  &trans  &mo 0              &trans  &to LAYER_Base  &kp KP_N0
             >;
         };
 
