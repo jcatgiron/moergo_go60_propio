@@ -129,7 +129,7 @@
               &caps_word   &kp A      &kp S    &kp D     &kp F   &kp G                                                       &kp H     &kp J      &kp K     &kp L  &kp SEMI             &kp RBKT
  &kp LSHFT   &kp Z      &kp X    &kp C     &kp V   &kp B                                                       &kp N     &kp M  &kp COMMA   &kp DOT  &kp FSLH          &kp RSHFT
                                &kp LCTRL  &kp LGUI  &kp LALT                                                                      &kp UP   &kp DOWN  &kp RIGHT
-                                                         &kp SPACE  &kp DEL  &td_LAYER_Keypad     &kp RET  &lt LAYER_Keypad SPACE  &kp LEFT
+                                                         &kp SPACE  &kp DEL  &keypad_td     &kp RET  &lt LAYER_Keypad SPACE  &kp LEFT
             >;
         };
 
