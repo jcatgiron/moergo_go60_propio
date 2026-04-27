@@ -1,0 +1,9 @@
+&rgb_underglow {
+    compatible = "zmk,rgb-underglow";
+    status = "okay";
+
+    // valores iniciales
+    default-brightness = <100>;
+    default-hue = <0>;
+    default-saturation = <100>;
+};
