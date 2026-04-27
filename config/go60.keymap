@@ -47,7 +47,8 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mo LAYER_Keypad>, <&to LAYER_Keypad>;
+            bindings = <&mo LAYER_Keypad &rgb_ug RGB_SET 50 100 100>,
+           <&to LAYER_Keypad &rgb_ug RGB_SET 50 100 100>;
         };
 
         symbol_nav_td: symbol_nav_td {
