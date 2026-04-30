@@ -275,6 +275,142 @@
     };
 };
 
+#if __has_include(<dt-bindings/zmk/rgb_colors.h>)
+  //
+  // Color definitions with conflict guard to prevent
+  // accidental redefinition of common abbreviations.
+  //
+  #if defined(RED) || defined(RED_RGB) || \
+      defined(COR) || defined(COR_RGB) || \
+      defined(ORN) || defined(ORN_RGB) || \
+      defined(GDN) || defined(GDN_RGB) || \
+      defined(GOL) || defined(GOL_RGB) || \
+      defined(YLW) || defined(YLW_RGB) || \
+      defined(CHU) || defined(CHU_RGB) || \
+      defined(GRN) || defined(GRN_RGB) || \
+      defined(SPG) || defined(SPG_RGB) || \
+      defined(CYN) || defined(CYN_RGB) || \
+      defined(AZU) || defined(AZU_RGB) || \
+      defined(TEA) || defined(TEA_RGB) || \
+      defined(TUR) || defined(TUR_RGB) || \
+      defined(BLU) || defined(BLU_RGB) || \
+      defined(PUR) || defined(PUR_RGB) || \
+      defined(MAJ) || defined(MAJ_RGB) || \
+      defined(PNK) || defined(PNK_RGB) || \
+      defined(WHT) || defined(WHT_RGB) || \
+      defined(BLK) || defined(BLK_RGB) || \
+      defined(___) || \
+      defined(DUG) || defined(DUG_RGB) || \
+      defined(LAC) || defined(LAC_RGB) || \
+      defined(BSL) || defined(BNL) || defined(BCL) || \
+      defined(SSL) || defined(SNL) || defined(SCL) || \
+      defined(FST) || defined(WRP) || defined(SLO)
+  #error "Naming conflict: 3-letter color abbreviation already defined!"
+  #endif
+
+  //
+  // Color definitions
+  //
+  #define RED_RGB 0xFF0000
+  #define COR_RGB 0xFF7C4D
+  #define ORN_RGB 0xFF8000
+  #define GDN_RGB 0xD9A521
+  #define GOL_RGB 0xFFD900
+  #define YLW_RGB 0xFFFF00
+  #define CHU_RGB 0x80FF00
+  #define GRN_RGB 0x00FF00
+  #define SPG_RGB 0x00FF80
+  #define CYN_RGB 0x00FFFF
+  #define AZU_RGB 0x99F5FF
+  #define TEA_RGB 0x008080
+  #define TUR_RGB 0x476E6A
+  #define BLU_RGB 0x0000FF
+  #define PUR_RGB 0x7A00FF
+  #define MAJ_RGB 0xFF00FF
+  #define PNK_RGB 0xFF80BF
+  #define WHT_RGB 0xFFFFFF
+  #define BLK_RGB 0x000000
+  #define DUG_RGB 0x00FF68
+  #define LAC_RGB 0x6B1FCE
+
+  //
+  // Short color names
+  //
+  #define RED &ug RED_RGB
+  #define COR &ug COR_RGB
+  #define ORN &ug ORN_RGB
+  #define GDN &ug GDN_RGB
+  #define GOL &ug GOL_RGB
+  #define YLW &ug YLW_RGB
+  #define CHU &ug CHU_RGB
+  #define GRN &ug GRN_RGB
+  #define SPG &ug SPG_RGB
+  #define CYN &ug CYN_RGB
+  #define AZU &ug AZU_RGB
+  #define TEA &ug TEA_RGB
+  #define TUR &ug TUR_RGB
+  #define BLU &ug BLU_RGB
+  #define PUR &ug PUR_RGB
+  #define MAJ &ug MAJ_RGB
+  #define PNK &ug PNK_RGB
+  #define WHT &ug WHT_RGB
+  #define ___ &ug BLK_RGB
+  #define DUG &ug DUG_RGB
+  #define LAC &ug LAC_RGB
+
+  //
+  // Lock-key underglow for Base layer
+  //
+  #define BSL &ug_sl BLK_RGB RED_RGB
+  #define BNL &ug_nl BLK_RGB RED_RGB
+  #define BCL &ug_cl BLK_RGB RED_RGB
+
+  //
+  // Mouse speed indicators
+  //
+  #define FST GOL
+  #define WRP CHU
+  #define SLO COR
+
+  // ==== PER-KEY RGB LAYERS BEGIN ====
+  / {
+    underglow-layer {
+      compatible = "zmk,underglow-layer";
+
+      #ifdef LAYER_Base
+      Base {
+        bindings = <
+          ORN YLW YLW YLW YLW YLW                                     YLW YLW YLW YLW YLW ORN
+          ORN CYN CYN CYN CYN CYN                                     CYN CYN CYN CYN CYN CYN
+          ORN CYN CYN CYN CYN CYN                                     CYN CYN CYN CYN CYN CYN
+          WHT CYN CYN CYN CYN CYN                                     CYN CYN CYN CYN CYN WHT
+                  WHT PUR WHT                                             ORN ORN ORN 
+                                       GRN RED GOL     RED GOL ORN 
+        >;
+        layer-id = <LAYER_Base>;
+        fade-delay = <30>;
+      };
+      #endif
+
+      #ifdef LAYER_Keypad
+      Keypad {
+        bindings = <
+          RED ORN ORN ORN ORN GRN                                     ORN ORN ORN GRN ORN WHT 
+          RED RED RED YLW RED RED                                     CYN ___ ___ ___ ORN CYN 
+          WHT RED YLW YLW YLW RED                                     CYN ___ ___ ___ ORN CYN
+          WHT RED RED RED RED CYN                                     GRN GRN YLW CYN CYN WHT
+                  WHT BLU WHT                                             YLW YLW YLW  
+                                       GRN RED GOL     RED GOL WHT 
+        >;
+        layer-id = <LAYER_Keypad>;
+        fade-delay = <15>;
+      };
+      #endif
+
+    }; // end underglow-layer
+  };   // end /
+
+
 &cirque_rh_listener {
     input-processors = <&zip_xy_scaler 3 1>;
     layer_2 {
